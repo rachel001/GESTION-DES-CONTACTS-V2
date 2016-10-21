@@ -2,41 +2,60 @@ package dao;
 
 import java.util.ArrayList;
 
-import entity.Contact;
+import org.hibernate.Session;
 
-public class DaoContact implements IDAOContact {
+import util.HibernateUtil;
+import domaine.Adresse;
+import domaine.Contact;
+import domaine.ContactGroup;
+//import domaine.PhoneNumber;
+import domaine.PhoneNumber;
 
-	@Override
-	public Contact createContact(Contact contact) {
-		// TODO Auto-generated method stub
-		return null;
+public class DAOContact {
+	private Contact createdContact;
+
+	public Contact createContact(Contact contact, PhoneNumber phone, Adresse adresse, ContactGroup group) {
+		//Obtention d’une session
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		//démarrer une transaction
+		session.beginTransaction();
+		//persister l’objet
+		
+		session.save(group);
+		session.save(adresse);
+		session.save(contact);
+		session.save(phone);
+		session.flush();
+		//recharger l’objet à partir de la session
+		createdContact = (Contact) session.load(Contact.class,
+		contact.getIdContact());
+		//committer la transaction
+		session.getTransaction().commit();
+		
+		
+		return createdContact;
 	}
 
-	@Override
 	public boolean deleteContact(Contact contact) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public Contact updateContact(Contact contact) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Contact findContactById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ArrayList<Contact> findContactByLastName(String lastName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public ArrayList<Contact> findContactByEmail(String email) {
 		// TODO Auto-generated method stub
 		return null;

@@ -7,17 +7,35 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="post" action="addContactServelt">
+<form method="post" action="AddContact">
 <table>
-  <tr>Nom :<input type="text" name="nom"/></tr>
-  <tr>Prenom :<input type="text" name="prenom"/></tr>
-  <tr>Age :<input type="text" name="age"/></tr>
-  <tr>Email :<input type="text" name="email"/></tr>
-  <tr>Code postal :<input type="text" name="codePostal"/></tr>
-  <tr>Ville :<input type="text" name="ville"/></tr>
-  <tr>Pays :<input type="text" name="pays"/></tr>
+    <tr><td><h2>Groupe</h2></td></tr>
+    <tr><td><i>Nom : <input type="text" name="groupName" size="50"></i></td></tr>
+    
+	<tr><td><h2>Contact</h2></td></tr>
+	<tr><td> <i> Nom : <input type="text" name="lastname" size="50"></i></td></tr>
+	<tr><td> <i> Prenom : <input type="text" name="firstname" size="50"></i></td></tr>
+	<tr><td><i>  Mail : <input type="text" name="email" size="100"></i></td></tr>
+	
+	<tr><td><h2>Phone number</h2></td></tr>
+	<tr><td> <i> Phone Kind : <input type="text" name="phoneKind" size="50"></i></td></tr>
+	<tr><td> <i> Phone Number : <input type="text" name="phoneNumber" size="50"></i></td></tr>
+	
+	<tr><td><h2>Adresse</h2></td></tr>
+	<tr><td><i> Street : <input type="text" name="street" size="100"></i></td></tr>
+	<tr><td><i> City : <input type="text" name="city" size="100"></i></td></tr>
+	<tr><td><i> Zip : <input type="text" name="zip" size="100"></i></td></tr>
+	<tr><td><i> Country : <input type="text" name="country" size="100"></i></td></tr>
+	<tr><td>
+	<input class="button" type="submit" value="Submit" />
+	<input class="button" type="reset"  value="Reset" />
+	</td>
+	</tr>
+
 </table>
+
 </form>
+
 
 </body>
 </html>

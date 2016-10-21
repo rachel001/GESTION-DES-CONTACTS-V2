@@ -7,7 +7,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form method="post" action="AddContact.jsp">
+<table>
 
+	<tr>
+	<td>
+	<input class="button" type="submit" value="Creer un Contact" />
+	</td>
+	<td>
+	<input class="button" type="submit" value="Chercher un Contact" />
+	</td>
+	<td>
+	<input class="button" type="submit" value="Modifier un Contact" />
+	</td>
+	<td>
+	<input class="button" type="submit" value="Supprimer un Contact" />
+	</td>
+	</tr>
+
+</table>
+
+</form>
 
 </body>
 </html>
