@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="domaine">
+<class name="Entreprise" table="ENTREPRISE_Table">
+  <id name="idContact" type="long" column="ID_CONTACT" >
+   	<generator class="increment"/>
+  </id>
+  <property name="numSiret"><column name="NUMSIRET"/></property>
+</class>
+</hibernate-mapping>

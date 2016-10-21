@@ -21,10 +21,8 @@ public class DAOContact {
 		session.beginTransaction();
 		//persister l’objet
 		
-		session.save(group);
 		session.save(adresse);
 		session.save(contact);
-		session.save(phone);
 		session.flush();
 		//recharger l’objet à partir de la session
 		createdContact = (Contact) session.load(Contact.class,

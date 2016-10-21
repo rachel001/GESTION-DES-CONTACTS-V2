@@ -6,17 +6,27 @@
   <id name="idContact" type="long" column="ID_CONTACT" >
    	<generator class="increment"/>
   </id>
+  <!-- save Adresse -->
   <many-to-one name="adresse" column="ID_ADRESSE" unique="true" class="Adresse" not-null="true"/>
-  <set name="books" table="BOOK">
+  <!-- save Group -->
+  <set name="books" cascade="save-update" table="BOOK">
    <key column="ID_CONTACT"/>
    <many-to-many class="ContactGroup" column="ID_GROUP"/>
   </set>
-  <set name="phones" inverse="true">
+  <!-- save Phone Number -->
+  <set name="phones" cascade="all" inverse="true">
    <key column="ID_PHONENUMBER"/>
    <one-to-many class="PhoneNumber"/>
   </set>
+  <!-- property of contact -->
   <property name="firstName"><column name="FIRSTNAME"/></property>
   <property name="lastName"><column name="LASTNAME"/></property>
   <property name="email"><column name="EMAIL"/></property>
+  
+  <!-- Sub class LA SOUS CLASSE SE PLACE APRES LES PROPERTY-->
+  <joined-subclass name="Entreprise" table="Entreprise_table" extends="Contact">
+    <key column="ID_CONTACT"/>
+    <property name="numSiret"><column name="NUMSIRET"/></property>
+    </joined-subclass>
 </class>
 </hibernate-mapping>
